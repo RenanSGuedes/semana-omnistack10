@@ -5,6 +5,7 @@ const parseStringAsArray = require('../utils/parseStringAsArray')
 module.exports = {
   async store(request,response) {
     const { github_username, techs, latitude, longitude } = request.body
+
     let dev = await Dev.findOne({ github_username })
   
     if (!dev) {
@@ -15,8 +16,9 @@ module.exports = {
         type: "Point",
         coordinates: [longitude, latitude]
       }
-  
+
       const techsArray = parseStringAsArray(techs)
+
       dev = await Dev.create({
         github_username,
         location,

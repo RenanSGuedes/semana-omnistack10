@@ -1,2 +1,3 @@
-parseStringAsArray = (string) => string.split(',').map(s => s.trim())
-module.exports = parseStringAsArray
+module.exports = function parseStringAsArray(arrayAsString) {
+  return arrayAsString.split(',').map(tech => tech.trim())
+}
